@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='icon'
+    href='https://khn.org/wp-content/uploads/sites/2/2020/05/GettyImages-1216013837.jpg?w=1024' type='image/gif' />
 
     <link href="./css/style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
@@ -27,16 +29,16 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <a class="navbar-brand mr-auto logo" href="#"><img src="logo.png" height="40" width="60"></a>           
+            <div class="navbar-brand mr-auto logo" href="#"><img src="./image/logo.jpeg" height="40" width="60"></div>
             <div class=" navbar-collapse" id="Navbar">
                 <ul class="navbar-nav mr-auto justify-content-center ">
-                    <li class="nav-item active"><a class="nav-link" href="./index.html"><span class="fa fa-home fa-lg"></span> Home</a></li>
-                    <li class="nav-item "><a class="nav-link" href="./admin_page.html"><span class="fa fa-hospital-o fa-lg"></span> Hospitals</a></li>
+                    <li class="nav-item "><a class="nav-link" href="./index.html"><span class="fa fa-home fa-lg"></span> Home</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="./admin_page.html"><span class="fa fa-hospital-o fa-lg"></span> Hospitals</a></li>
                     <li class="nav-item "><a class="nav-link" href="./covid_stats.html"><span class="fa  fa-info fa-lg"></span> COVID Stats</a></li>
                     <li class="nav-item "><a class="nav-link" href="./add_hospital.html"><span class="fa fa-phone-square fa-lg"></span> Add A Hospital</a></li>
                 </ul>
                 
-                <a class="navbar-brand ml-4 mr-0 " href="#"><img class="img1" src="image/img2.png" height="60" width="60"></a>
+                <div class="navbar-brand ml-4 mr-0 " href="#"><img class="img1" src="image/img2.png" height="60" width="60"></div>
             </div>
                     
         </div>
@@ -45,31 +47,44 @@
     <br>
     <br>
     <br>
-    <div style="margin: 5%;">
-        <div class="col-md-8" style="background-color: lavenderblush;">
-            <!-- code -->
-            <form action="/add_slots" method="POST" name="add_slots">
-                <div class="form-group">
-                    <label for="date">Date: </label>
-                    <input type="date" class="form-control" id="date" name="date">
-                </div>
-                <div class="form-group">
-                    <label for="id">Hospital ID: </label>
-                    <input type="number" class="form-control" id="id" name="id" readonly>
-                </div>
-                <button type="button" id="add-btn" class="btn btn-primary" formaction="/add_slots" formmethod="POST">ADD SLOTS</button>
-            </form>
-            <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8" style="background-color: rgb(214, 246, 247);">
+                <br>
+                <h3>Appointments Received</h3>
+                <ul class="app_list">
+                    {{#each data}}
+                        <li style="background-color: rgb(244, 246, 247); border-radius: 10px; padding:5px;">
+                            <div>Name: {{name}}</div>
+                            <div>Phone: {{phone}}</div>
+                            <div>Appointment Date: {{appt_date}}</div>
+                        </li>
+                        <br>
+                    {{/each}}
+                </ul>
+            </div>
+
+            <div class="col-md-4" style="background-color: lavenderblush;">
+                <!-- code -->
+                <br>
+                <h3>Add More Slots for Hospital</h3>
+                <form action="/add_slots" method="POST" name="add_slots">
+                    <div class="form-group">
+                        <label for="date">Date: </label>
+                        <input type="date" class="form-control" id="date" name="date">
+                    </div>
+                    <div class="form-group">
+                        <label for="id">Hospital ID: </label>
+                        <input type="number" class="form-control" id="id" name="id" readonly>
+                    </div>
+                    <button type="button" id="add-btn" class="btn btn-primary" formaction="/add_slots" formmethod="POST">ADD SLOTS</button>
+                </form>
+                <br>
+            </div>
         </div>
-        <br>
-        <h3>Appointments Received</h3>
-        <ul class="app_list">
-            {{#each data}}
-                <li>Name: {{name}}, Email: {{email}}, Appointment Data: {{appt_date}}</li>
-            {{/each}}
-        </ul>
     </div>
 </body>
+
 <script>
     let hospid = document.location.href.split("=")[1];
     $("#id").val(hospid);

@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="homepage.css" type="text/css" rel="stylesheet"/>
+    <link href="./css/covid.css" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" href="./css/style.css">
     <title>Covid Tracking</title>
     <link rel='icon'
     href='https://img.etimg.com/thumb/msid-75189010,width-300,imgsize-152054,,resizemode-4,quality-100/lockodwn-agencies.jpg'
@@ -33,11 +34,32 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.1/css/mdb.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="card-body text-white fonth" style="text-align: center; background-color:#a9eaf3; border-bottom: 4px rgb(102, 175, 235) solid;">
-        <h1 class= "padh">COVID-19 STATISTICS IN INDIA</h1>
-      </div>
+    <nav class="navbar navbar-dark navbar-expand-sm fixed-top">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-brand mr-auto logo" href="#"><img src="./image/logo.jpeg" height="40" width="60"></div>           
+            <div class=" navbar-collapse" id="Navbar">
+                <ul class="navbar-nav mr-auto justify-content-center ">
+                    <li class="nav-item "><a class="nav-link" href="./"><span class="fa fa-home fa-lg"></span> Home</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="./covid_stats.html"><span class="fa  fa-info fa-lg"></span> COVID Stats</a></li>
+                    <li class="nav-item "><a class="nav-link" href="#help"><span class="fa fa-phone-square fa-lg"></span> Helpline</a></li>
+                </ul>
+                
+                <span class="navbar-text">
+                    <a href="./admin_login.html" data-target="#loginModal" style="text-decoration: none;">
+                    <span class="fa fa-sign-in"></span> Admin Login</a>
+                </span>
+                <div class="navbar-brand ml-4 mr-0 " href="#"><img class="img1" src="image/img2.png" height="60" width="60"></div>
+            </div>
+                    
+        </div>
+    </nav>
+    <br><br><br><br>
     <div class="container">
-        <p class="grey-text center">keeping a track of covid-19 cases</p>
+        <p class="grey-text center">Keeping a track of Covid-19 Cases</p>
+        <p class="grey-text center">Data may be outdated, fetched from an API</p>
         
         <div class=" row row-space">
             <div class="col-md-8">
@@ -118,9 +140,8 @@
 
     <script src="https://cdn.jsdelivr.net/npm/countup@1.8.2/dist/countUp.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
-    <script src='graph.js'></script>
+    <script src='./scripts/covid.js'></script>
     <script src='scroll.js'></script>
-    
-    
+
 </body>
 </html>

@@ -22,6 +22,11 @@
 
     <script src="./scripts/script.js"></script>
     <title>Admin Page</title>
+    <style>
+        #head{
+            padding: 2%;
+        }
+    </style>
 </head>
 
 <body>
@@ -33,8 +38,8 @@
             <div class="navbar-brand mr-auto logo" href="#"><img src="./image/logo.jpeg" height="40" width="60"></div>
             <div class=" navbar-collapse" id="Navbar">
                 <ul class="navbar-nav mr-auto justify-content-center ">
-                    <li class="nav-item active"><a class="nav-link" href="./index.html"><span class="fa fa-home fa-lg"></span> Home</a></li>
-                    <li class="nav-item "><a class="nav-link" href="./admin_page.html"><span class="fa fa-hospital-o fa-lg"></span> Hospitals</a></li>
+                    <li class="nav-item "><a class="nav-link" href="./index.html"><span class="fa fa-home fa-lg"></span> Home</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="./admin_page.html"><span class="fa fa-hospital-o fa-lg"></span> Hospitals</a></li>
                     <li class="nav-item "><a class="nav-link" href="./covid_stats.html"><span class="fa  fa-info fa-lg"></span> COVID Stats</a></li>
                     <li class="nav-item "><a class="nav-link" href="./add_hospital.html"><span class="fa fa-phone-square fa-lg"></span> Add A Hospital</a></li>
                 </ul>
@@ -49,8 +54,11 @@
     <div class="container">
         <h4>WELCOME TO ADMIN PAGE</h4>
     </div>
-    <br>
-    <div class="container" id="hospital-list"></div>
+    <div class="container" style="background-color: rgb(202, 245, 231); padding: 0.5%;">
+        <h4 id="head">List of Hospitals</h4>
+        <ol id="hospital-list">
+        </ol>
+    </div>
     </div>
 
 </body>
