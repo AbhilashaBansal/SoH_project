@@ -57,7 +57,7 @@
                     <label for="id">Hospital ID: </label>
                     <input type="number" class="form-control" id="id" name="id" readonly>
                 </div>
-                <button type="submit" class="btn btn-primary" formaction="/add_slots" formmethod="POST">ADD SLOTS</button>
+                <button type="button" id="add-btn" class="btn btn-primary" formaction="/add_slots" formmethod="POST">ADD SLOTS</button>
             </form>
             <br>
         </div>
@@ -75,5 +75,23 @@
     $("#id").val(hospid);
     console.log(hospid);
     {{!-- console.log(data); --}}
+
+    $("#add-btn").click(function(e){
+        // e.preventDefault();
+        let date = $("#date").val();
+        let id = $("#id").val();
+
+
+        $.post('/add_slots', {date, id}, function(data, status){
+          console.log(status);
+          console.log(data);
+          if(status=="success"){
+            alert("Slots added successfully!");
+          }
+          else{
+            alert("Some error occurred! Please try again.");
+          }
+        });
+      })
 </script>
 </html>
